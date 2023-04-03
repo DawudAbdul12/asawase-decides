@@ -1,0 +1,1008 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Akwaaba  API",
+        "description": " description",
+        "contact": {
+            "email": "dawud@effectstudios.co"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/business-data/create": {
+            "post": {
+                "tags": [
+                    "BusinessData"
+                ],
+                "summary": "Create Business Data ",
+                "description": "Create Business Data",
+                "operationId": "createBusinessData",
+                "requestBody": {
+                    "description": "Create a Business Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "business_name",
+                                    "address",
+                                    "experience"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "description": "your email",
+                                        "type": "string",
+                                        "example": "user@example.com"
+                                    },
+                                    "business_name": {
+                                        "description": "your Business Name",
+                                        "type": "string",
+                                        "example": "trapzium"
+                                    },
+                                    "address": {
+                                        "description": "your business address",
+                                        "type": "string",
+                                        "example": "Dansoman Roundabout, Accra"
+                                    },
+                                    "experience": {
+                                        "description": "Experience",
+                                        "type": "string",
+                                        "example": "Food & nightlife, sports events, talks & workshop"
+                                    },
+                                    "location": {
+                                        "properties": {
+                                            "street_number": {
+                                                "type": "string",
+                                                "example": "213"
+                                            },
+                                            "route": {
+                                                "type": "string",
+                                                "example": "Hamburgo"
+                                            },
+                                            "political": {
+                                                "type": "string",
+                                                "example": "Juárez"
+                                            },
+                                            "administrative_area_level_1": {
+                                                "type": "string",
+                                                "example": "Hamburgo"
+                                            },
+                                            "country": {
+                                                "type": "string",
+                                                "example": "Mexico"
+                                            },
+                                            "postal_code": {
+                                                "type": "string",
+                                                "example": "06600"
+                                            },
+                                            "lat": {
+                                                "type": "string",
+                                                "example": "19.4245"
+                                            },
+                                            "lon": {
+                                                "type": "string",
+                                                "example": "-99.1688"
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "example": "Hamburgo 213, Juárez, Mexico City, CDMX, Mexico"
+                                            },
+                                            "city": {
+                                                "type": "string",
+                                                "example": "Ciudad de México"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "true"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record Added Successfully."
+                                        },
+                                        "business_data": {
+                                            "$ref": "#/components/schemas/BusinessData"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/personal-data/create": {
+            "post": {
+                "tags": [
+                    "PersonalData"
+                ],
+                "summary": "Create Personal Data ",
+                "description": "Create Personal Data",
+                "operationId": "createPersonalData",
+                "requestBody": {
+                    "description": "Create a Personal Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "first_name",
+                                    "last_name",
+                                    "experience"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "description": "your email",
+                                        "type": "string",
+                                        "example": "user@example.com"
+                                    },
+                                    "first_name": {
+                                        "description": "your first name",
+                                        "type": "string",
+                                        "example": "mark"
+                                    },
+                                    "last_name": {
+                                        "description": "your last name",
+                                        "type": "string",
+                                        "example": "Benzy"
+                                    },
+                                    "experience": {
+                                        "description": "Experience",
+                                        "type": "string",
+                                        "example": "Food & nightlife, sports events, talks & workshop"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Record Added Successfully."
+                                        },
+                                        "personal_data": {
+                                            "$ref": "#/components/schemas/PersonalData"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BaseModel": {
+                "properties": {
+                    "created_at": {
+                        "description": "Initial creation timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    },
+                    "updated_at": {
+                        "description": "Last update timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    },
+                    "deleted_at": {
+                        "description": "Soft delete timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    },
+                    "dob": {
+                        "description": "Soft delete timestamp",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true"
+                    }
+                },
+                "type": "object"
+            },
+            "Blog": {
+                "required": [
+                    "title",
+                    "slug",
+                    "type",
+                    "content",
+                    "publish",
+                    "visibility"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "title": {
+                        "description": "Blog Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Men Collections"
+                    },
+                    "slug": {
+                        "description": "Blog Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "text"
+                    },
+                    "content": {
+                        "description": " Blog Content  ",
+                        "type": "string",
+                        "example": "Content"
+                    },
+                    "video": {
+                        "description": "video Link",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "youtube.com"
+                    },
+                    "visibility": {
+                        "description": "visibility ",
+                        "type": "string",
+                        "example": "publish"
+                    },
+                    "publish": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "featured": {
+                        "description": "",
+                        "type": "boolean",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "image": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "thumbnail": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "author": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Effect"
+                    },
+                    "source": {
+                        "description": "Source ",
+                        "type": "string",
+                        "example": "cnn"
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BlogCategory"
+                        }
+                    },
+                    "tags": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi, blog, money"
+                    },
+                    "read_time": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "1 minute read"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Blog"
+                }
+            },
+            "BlogCategory": {
+                "required": [
+                    "title",
+                    "slug",
+                    "parent"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1989329398392"
+                    },
+                    "title": {
+                        "description": "Category Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Men Collections"
+                    },
+                    "slug": {
+                        "description": "Category Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "parent": {
+                        "description": "0 if the category is a parent category ",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "0"
+                    },
+                    "position": {
+                        "description": "category position ",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "publish": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "content"
+                    },
+                    "image": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "BlogCategory"
+                }
+            },
+            "BusinessData": {
+                "required": [
+                    "email",
+                    "business_name",
+                    "address",
+                    "experience"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "email": {
+                        "description": "your email",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "user@example.com"
+                    },
+                    "type": {
+                        "description": "record type",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "business"
+                    },
+                    "business_name": {
+                        "description": "your Business Name",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "trapzium"
+                    },
+                    "address": {
+                        "description": "your business address",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Dansoman Roundabout, Accra"
+                    },
+                    "experience": {
+                        "description": "Experience",
+                        "type": "string",
+                        "example": "Food & nightlife, sports events, talks & workshop"
+                    },
+                    "location": {
+                        "properties": {
+                            "street_number": {
+                                "type": "string",
+                                "example": "213"
+                            },
+                            "route": {
+                                "type": "string",
+                                "example": "Hamburgo"
+                            },
+                            "political": {
+                                "type": "string",
+                                "example": "Juárez"
+                            },
+                            "administrative_area_level_1": {
+                                "type": "string",
+                                "example": "Hamburgo"
+                            },
+                            "country": {
+                                "type": "string",
+                                "example": "Mexico"
+                            },
+                            "postal_code": {
+                                "type": "string",
+                                "example": "06600"
+                            },
+                            "lat": {
+                                "type": "string",
+                                "example": "19.4245"
+                            },
+                            "lon": {
+                                "type": "string",
+                                "example": "-99.1688"
+                            },
+                            "address": {
+                                "type": "string",
+                                "example": "Hamburgo 213, Juárez, Mexico City, CDMX, Mexico"
+                            },
+                            "city": {
+                                "type": "string",
+                                "example": "Ciudad de México"
+                            },
+                            "is_active": {
+                                "type": "string",
+                                "example": "true"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "BusinessData"
+                }
+            },
+            "Career": {
+                "required": [
+                    "title",
+                    "job_title",
+                    "location"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1989329398392"
+                    },
+                    "job_title": {
+                        "description": "Job Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Software Developer"
+                    },
+                    "slug": {
+                        "description": "Career Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "software-developer"
+                    },
+                    "location": {
+                        "description": "Location",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Nigeria"
+                    },
+                    "application_link": {
+                        "description": "Application Link ",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi.co/apply"
+                    },
+                    "content": {
+                        "description": "Application content ",
+                        "type": "string",
+                        "readOnly": "false"
+                    },
+                    "tag": {
+                        "description": "Application tag ",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi, career, software"
+                    },
+                    "visibility": {
+                        "description": "Application Status ",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "public / Private"
+                    },
+                    "featured": {
+                        "description": "",
+                        "type": "boolean",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "publish": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "close_date": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Career"
+                }
+            },
+            "CareerCategory": {
+                "required": [
+                    "title",
+                    "slug"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1989329398392"
+                    },
+                    "title": {
+                        "description": "Category Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Men Collections"
+                    },
+                    "slug": {
+                        "description": "Category Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "position": {
+                        "description": "category position ",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "publish": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "content"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "CareerCategory"
+                }
+            },
+            "FAQ": {
+                "required": [
+                    "title",
+                    "slug",
+                    "content",
+                    "publish",
+                    "visibility"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "title": {
+                        "description": "Question",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "How to login"
+                    },
+                    "slug": {
+                        "description": "FAQ Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "content": {
+                        "description": " FAQ Content  ",
+                        "type": "string",
+                        "example": "Content"
+                    },
+                    "visibility": {
+                        "description": "visibility ",
+                        "type": "string",
+                        "example": "publish"
+                    },
+                    "publish": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "featured": {
+                        "description": "",
+                        "type": "boolean",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BlogCategory"
+                        }
+                    },
+                    "tags": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi, FAQ, money"
+                    },
+                    "liked": {
+                        "description": "",
+                        "type": "integer",
+                        "readOnly": "false",
+                        "example": "10"
+                    },
+                    "disliked": {
+                        "description": "",
+                        "type": "integer",
+                        "readOnly": "false",
+                        "example": "0"
+                    },
+                    "thumbnail": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "FAQ"
+                }
+            },
+            "FAQCategory": {
+                "required": [
+                    "title",
+                    "slug"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "1989329398392"
+                    },
+                    "title": {
+                        "description": "Category Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Men Collections"
+                    },
+                    "slug": {
+                        "description": "Category Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "position": {
+                        "description": "category position ",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "publish": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "content": {
+                        "type": "string",
+                        "example": "content"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "FAQCategory"
+                }
+            },
+            "PersonalData": {
+                "required": [
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "experience"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "email": {
+                        "description": "your email",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "user@example.com"
+                    },
+                    "first_name": {
+                        "description": "your first name",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "mark"
+                    },
+                    "last_name": {
+                        "description": "your last name",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Benzy"
+                    },
+                    "experience": {
+                        "description": "Experience",
+                        "type": "string",
+                        "example": "Food & nightlife, sports events, talks & workshop"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "PersonalData"
+                }
+            },
+            "Press": {
+                "required": [
+                    "title",
+                    "slug",
+                    "content",
+                    "publish",
+                    "visibility"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "title": {
+                        "description": "Press Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Men Collections"
+                    },
+                    "slug": {
+                        "description": "Press Slug. Note. is a unique field",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "men-collections"
+                    },
+                    "content": {
+                        "description": " Press Content  ",
+                        "type": "string",
+                        "example": "Content"
+                    },
+                    "visibility": {
+                        "description": "visibility ",
+                        "type": "string",
+                        "example": "publish"
+                    },
+                    "publish": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "featured": {
+                        "description": "",
+                        "type": "boolean",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "image": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "source": {
+                        "description": "Source ",
+                        "type": "string",
+                        "example": "cnn"
+                    },
+                    "tags": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi, Press, money"
+                    },
+                    "link": {
+                        "description": "link ",
+                        "type": "string",
+                        "example": "https://africa.googleblog.com/2022/09/meet-google-for-startups-black-founders.html"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Press"
+                }
+            },
+            "Testimonial": {
+                "required": [
+                    "title",
+                    "fullname",
+                    "content",
+                    "publish",
+                    "visibility"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "readOnly": "true",
+                        "example": "11245"
+                    },
+                    "title": {
+                        "description": "Blog Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Mr"
+                    },
+                    "fullname": {
+                        "description": "Blog Title",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "John Joe"
+                    },
+                    "profession": {
+                        "description": "profession",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "Software"
+                    },
+                    "company": {
+                        "description": "company",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "effectstudios"
+                    },
+                    "content": {
+                        "description": " Blog Content  ",
+                        "type": "string",
+                        "example": "Content"
+                    },
+                    "visibility": {
+                        "description": "visibility ",
+                        "type": "string",
+                        "example": "publish"
+                    },
+                    "publish": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "featured": {
+                        "description": "",
+                        "type": "boolean",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "tags": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "kyshi, blog, money"
+                    },
+                    "profile_img": {
+                        "type": "string",
+                        "format": "binary"
+                    },
+                    "platform_source": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "AppStore"
+                    },
+                    "stars": {
+                        "description": "",
+                        "type": "string",
+                        "readOnly": "false",
+                        "example": "1"
+                    },
+                    "created_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/created_at"
+                    },
+                    "updated_at": {
+                        "$ref": "#/components/schemas/BaseModel/properties/updated_at"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Testimonial"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
