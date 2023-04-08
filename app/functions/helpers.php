@@ -13,16 +13,17 @@ function checker_slug($name, $results, $old_slug = null){
 
             if($q_count > 0  && $key == 0 &&  $old_slug != null ){
 
-                $slug_name = $result['title'];
+                $name;
 
             }else{
 
-                $slug_name = $result['title']."-".$count++;
+                $slug_name = $name."-".$count++;
             }
             // convert to slug
             $new_slug = Str::slug($slug_name,'-');
 
             if($new_slug == $old_slug){
+                
                 break;
             }
 

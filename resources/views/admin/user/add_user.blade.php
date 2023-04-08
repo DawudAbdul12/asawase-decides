@@ -25,7 +25,7 @@
             <!-- Forms Row -->
             <div class="row">
               
-                <div class="col-lg-8">
+                <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-3 col-lg-8 col-lg-offset-2">
                     <h2 class="content-heading"></h2>
                     <div class="block">
                         <div class="block-header">

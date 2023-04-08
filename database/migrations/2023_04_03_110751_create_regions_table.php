@@ -17,6 +17,7 @@ class CreateRegionsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('slug');
+            $table->mediumText('description')->nullable();
             $table->timestamps();
         });
     }

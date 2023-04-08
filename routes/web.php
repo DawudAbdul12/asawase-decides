@@ -37,6 +37,9 @@ Route::post('/admin/settings/profile', [\App\Http\Controllers\userController::cl
 Route::get('/admin/settings/change-password', [\App\Http\Controllers\userController::class, 'change_password']);
 Route::post('/admin/settings/change-password', [\App\Http\Controllers\userController::class, 'update_password']);
 Route::resource('/admin/user', \App\Http\Controllers\userController::class);
+
+Route::resource('/admin/region', \App\Http\Controllers\RegionController::class);
+
 Auth::routes();
 
 // Business
@@ -47,3 +50,4 @@ Route::delete('/admin/business/{id}', [\App\Http\Controllers\BusinessController:
 // Person
 Route::get('/admin/person', [\App\Http\Controllers\PersonController::class, 'index']);
 Route::delete('/admin/person/{id}', [\App\Http\Controllers\PersonController::class, 'destroy']);
+

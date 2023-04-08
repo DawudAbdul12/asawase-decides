@@ -8235,15 +8235,15 @@ a.list-group-item:focus {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 12px 10px;
+  /* padding: 12px 10px; */
   border-top: 1px solid #f0f0f0;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th {
-  padding: 16px 10px 12px;
+  /* padding: 16px 10px 12px; */
   font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  /* font-size: 15px; */
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -11389,12 +11389,13 @@ a.list-group-item:focus {
     max-width: 100%;
     overflow-x: visible;
   }
-  .content p,
+  /* .content p,
   .content .push,
   .content .block,
   .content .items-push > div {
+
     margin-bottom: 30px;
-  }
+  } */
   .content .items-push-2x > div {
     margin-bottom: 60px;
   }
