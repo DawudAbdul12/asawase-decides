@@ -39,6 +39,8 @@ Route::post('/admin/settings/change-password', [\App\Http\Controllers\userContro
 Route::resource('/admin/user', \App\Http\Controllers\userController::class);
 
 Route::resource('/admin/region', \App\Http\Controllers\RegionController::class);
+Route::resource('/admin/constituency', \App\Http\Controllers\ConstituencyController::class);
+
 
 Auth::routes();
 

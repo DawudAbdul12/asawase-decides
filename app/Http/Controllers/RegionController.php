@@ -21,7 +21,7 @@ class RegionController extends Controller
     public function index()
     {
         $regions = Region::paginate(10);
-        $pg = "person";
+        $pg = "region";
         return view('admin.region.all',compact('regions','pg'));
     }
 
@@ -32,7 +32,7 @@ class RegionController extends Controller
      */
     public function create()
     {
-        $pg = "person";
+        $pg = "region";
         return view('admin.region.add',compact('pg'));
     }
 
@@ -67,7 +67,7 @@ class RegionController extends Controller
      */
     public function show($id)
     {
-        $pg = "person";
+        $pg = "region";
         $region = Region::findorfail($id);
         return view('admin.region.edit',compact('pg','region'));
     }
@@ -80,7 +80,7 @@ class RegionController extends Controller
      */
     public function edit($id)
     {
-        $pg = "person";
+        $pg = "region";
         $region = Region::findorfail($id);
         return view('admin.region.edit',compact('pg','region'));
     }
