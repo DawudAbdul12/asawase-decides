@@ -23,7 +23,7 @@ class BranchController extends Controller
      */
     public function index()
     {
-        $branches = Branch::paginate(30);
+        $branches = Branch::with('constituency')->paginate(30);
         $pg = "branch";
         return view('admin.branch.all',compact('branches','pg'));
     }

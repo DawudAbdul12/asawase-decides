@@ -13,4 +13,6 @@ class Constituency extends Model
     public $incrementing = false;
 
     protected $keyType = 'uuid';
+
+   
 }

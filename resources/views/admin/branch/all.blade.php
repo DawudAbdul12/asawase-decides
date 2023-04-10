@@ -32,6 +32,7 @@
                         <table class="table table-striped table-vcenter">
                             <thead>
                                 <tr>
+                                    
                                     <th>Name</th>
                                     <th style="width: 30%;">Constituency</th>
                                     <th style="width: 15%;">Created At</th>
@@ -42,13 +43,16 @@
 
                                 @forelse ($branches as $branch)
 
+                                        
                                         <td class="font-w600"> 
                                             {{ ucwords($branch->name) }} 
                                         </td>
 
-                                        <td> 
-                                            10 
+                                        <td class="font-w600">
+                                            {{ isset($branch->constituency) ? ucwords($branch->constituency->name) : "Unasigned" }}
+                                           
                                         </td>
+
                                         <td>
                                             {{ $branch->created_at }}
                                         </td>

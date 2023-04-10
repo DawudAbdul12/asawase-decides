@@ -13,4 +13,9 @@ class Branch extends Model
     public $incrementing = false;
 
     protected $keyType = 'uuid';
+
+    public function constituency()
+    {
+        return $this->hasOne(Constituency::class, 'id', 'constituency_id');
+    }
 }
