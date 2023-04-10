@@ -23,7 +23,7 @@ class MembershipController extends Controller
      */
     public function index()
     {
-        $members = Membership::paginate(30);
+        $members = Membership::with('branch')->paginate(30);
         $pg = "member";
         return view('admin.member.all',compact('members','pg'));
     }
@@ -108,7 +108,7 @@ class MembershipController extends Controller
     public function show($id)
     {
         $pg = "member";
-        $member = Membership::findorfail($id);
+        $member = Membership::with('branch')->findorfail($id);
         $branches = Branch::limit(200)->get();
         return view('admin.member.edit',compact('pg','member','branches'));
     }
@@ -122,7 +122,7 @@ class MembershipController extends Controller
     public function edit($id)
     {
         $pg = "member";
-        $member = Membership::findorfail($id);
+        $member = Membership::with('branch')->findorfail($id);
         $branches = Branch::limit(200)->get();
         return view('admin.member.edit',compact('pg','member','branches'));
     }

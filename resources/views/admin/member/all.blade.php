@@ -36,11 +36,9 @@
                                 <tr>
                                     <th class="text-center" style="width: 120px;"><i class="si si-user"></i></th>
                                     <th> Full Name </th>
-                                    <th style="width: 10%;">Phone</th>
-                                    <th style="width: 10%;">Location</th>
-                                    <th style="width: 10%;">Occupation</th>
-                                    <th style="width: 10%;">Education</th>
-                                    <th style="width: 10%;">Branch</th>
+                                    <th style="width: 20%;">Phone</th>
+                                    <th style="width: 15%;">Occupation</th>
+                                    <th style="width: 15%;">Branch</th>
                                     <th style="width: 10%;">Status</th>
                                     <th class="text-center" style="width: 100px;">Actions</th>
                                 </tr>
@@ -61,20 +59,23 @@
 
                                             @endif
                                         </td>
-                                        <td class="font-w600"> {{ ucwords($member->fname." ".$member->sname." ".$member->lname) }} </td>
-                                        <td>{{ $member->phone_number }}</td>
-                                        <td>
-                                            {{ $member->location }}
+                                        <td class="font-w600"> 
+                                            {{ ucwords($member->fname." ".$member->sname." ".$member->lname) }} <br>
+                                            ID: {{ $member->membership_id }} 
                                         </td>
                                         <td>
-                                            {{ $member->occupation }}
+                                            {{ $member->phone_number }} <br>
+                                            Location:{{ $member->location }} 
                                         </td>
+                                       
                                         <td>
-                                            {{ $member->education }}
+                                            {{ $member->occupation }} <br>
+                                            Education:{{ $member->education }}
                                         </td>
-                                        <td>
-                                            {{-- {{ $member->branch }} --}}
-                                            Asawase
+                                      
+                                        <td class="font-w600">
+                                            {{ isset($member->branch) ? ucwords($member->branch->name) : "Unasigned" }}
+                                           
                                         </td>
                                       
                                         <td>

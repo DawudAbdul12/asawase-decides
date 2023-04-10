@@ -13,4 +13,9 @@ class Membership extends Model
     public $incrementing = false;
 
     protected $keyType = 'uuid';
+
+    public function branch()
+    {
+        return $this->hasOne(Branch::class, 'id', 'branch_id');
+    }
 }
