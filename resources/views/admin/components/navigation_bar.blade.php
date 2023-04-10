@@ -35,11 +35,19 @@
                     <li class="nav-main-heading"><span class="sidebar-mini-hide">NAVIGATION</span></li>
 
                     <li>
-                        <a href="/admin/business" @if($pg == "business")  class="active" @endif ><i class="si si-home"></i><span class="sidebar-mini-hide">Business</span></a>
+                        <a href="/admin/member" @if($pg == "member")  class="active" @endif ><i class="si si-user"></i><span class="sidebar-mini-hide">Member</span></a>
                     </li>
 
                     <li>
-                        <a href="/admin/person" @if($pg == "person")  class="active" @endif ><i class="si si-user"></i><span class="sidebar-mini-hide">Person</span></a>
+                        <a href="/admin/branch" @if($pg == "branch")  class="active" @endif ><i class="si si-home"></i><span class="sidebar-mini-hide">Branch</span></a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/constituency" @if($pg == "constituency")  class="active" @endif ><i class="si si-home"></i><span class="sidebar-mini-hide">Constituency</span></a>
+                    </li>
+
+                    <li>
+                        <a href="/admin/region" @if($pg == "region")  class="active" @endif ><i class="si si-home"></i><span class="sidebar-mini-hide">Region</span></a>
                     </li>
 
 
@@ -59,7 +67,7 @@
                  
                     <li class="nav-main-heading"><span class="sidebar-mini-hide">Apps</span></li>
                     <li>
-                        <a href="https://akwaaba.app/"><i class="si si-rocket"></i><span class="sidebar-mini-hide">Frontend</span></a>
+                        <a href="https://eramembership.app/"><i class="si si-rocket"></i><span class="sidebar-mini-hide">Frontend</span></a>
                     </li>
                 </ul>
             </div>

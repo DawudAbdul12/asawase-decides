@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Admin - Akwaaba</title>
+    <title>Admin - Era Membership</title>
 
     <meta name="description" content="">
     <meta name="author" content="">

@@ -25,7 +25,7 @@ class ConstituencyController extends Controller
     public function index()
     {
         $constituencies = Constituency::paginate(30);
-        $pg = "conctituency";
+        $pg = "constituency";
         return view('admin.constituency.all',compact('constituencies','pg'));
     }
 
@@ -36,7 +36,7 @@ class ConstituencyController extends Controller
      */
     public function create()
     {
-        $pg = "conctituency";
+        $pg = "constituency";
         $regions = Region::limit(30)->get();
         return view('admin.constituency.add',compact( 'regions','pg'));
     }
@@ -80,7 +80,7 @@ class ConstituencyController extends Controller
      */
     public function show($id)
     {
-        $pg = "conctituency";
+        $pg = "constituency";
         $constituency = Constituency::findorfail($id);
         $regions = Region::limit(30)->get();
         return view('admin.constituency.edit',compact('pg','constituency','regions'));

@@ -22,7 +22,7 @@
                             </a>
                         </div>
                         <div class="col-xs-6">
-                            <a class="block block-rounded" href="https://akwaaba.app/">
+                            <a class="block block-rounded" href="https://eramembership.app/">
                                 <div class="block-content text-white bg-modern">
                                     <i class="si si-rocket fa-2x"></i>
                                     <div class="font-w600 push-15-t push-15">Frontend</div>

@@ -110,7 +110,7 @@ body {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link href="/asset-resources/page-assets/images/logo.png" rel="shortcut icon" type="image/x-icon">
-	<title>Akwaaba -Error</title>
+	<title>Era Membership -Error</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">

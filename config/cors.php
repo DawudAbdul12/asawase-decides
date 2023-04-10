@@ -20,7 +20,7 @@ return [
     'allowed_methods' => ['*'],
 
     // 'allowed_origins' => ['*'],
-    'allowed_origins' => ['https://akwaaba.app','http://localhost:3000'],
+    'allowed_origins' => ['https://eramembership.app','http://localhost:3000'],
 
     'allowed_origins_patterns' => [],
 

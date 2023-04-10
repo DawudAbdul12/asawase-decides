@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Akwaaba  API",
+ *      title="Era Membership  API",
  *      description=" description",
  *      @OA\Contact(
  *          email="dawud@effectstudios.co"
