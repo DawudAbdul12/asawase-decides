@@ -41,6 +41,8 @@ Route::resource('/admin/user', \App\Http\Controllers\userController::class);
 Route::resource('/admin/region', \App\Http\Controllers\RegionController::class);
 Route::resource('/admin/constituency', \App\Http\Controllers\ConstituencyController::class);
 Route::resource('/admin/branch', \App\Http\Controllers\BranchController::class);
+Route::resource('/admin/member', \App\Http\Controllers\MembershipController::class);
+
 
 
 
