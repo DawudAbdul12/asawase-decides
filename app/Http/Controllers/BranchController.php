@@ -6,16 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Models\Constituency;
 
-use App\Models\Region;
+use App\Models\Branch;
 
-class ConstituencyController extends Controller
+class BranchController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -24,9 +23,9 @@ class ConstituencyController extends Controller
      */
     public function index()
     {
-        $constituencies = Constituency::paginate(30);
-        $pg = "conctituency";
-        return view('admin.constituency.all',compact('constituencies','pg'));
+        $branches = Branch::paginate(30);
+        $pg = "branch";
+        return view('admin.branch.all',compact('branches','pg'));
     }
 
     /**
@@ -36,9 +35,9 @@ class ConstituencyController extends Controller
      */
     public function create()
     {
-        $pg = "conctituency";
-        $regions = Region::limit(30)->get();
-        return view('admin.constituency.add',compact( 'regions','pg'));
+        $pg = "branch";
+        $constituencies = Constituency::get();
+        return view('admin.branch.add',compact('constituencies','pg'));
     }
 
     /**
@@ -49,27 +48,26 @@ class ConstituencyController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
 
             'name' => ['required', 'string'],
-            'region' => ['required', 'string'],
+            'constituency_id' => ['required', 'string'],
 
         ]);
 
-        $results = Constituency::where('name', '=', $request->name)->orderBy('created_at', 'desc')->limit("5")->get();
+        $results = Branch::where('name', '=', $request->name)->orderBy('created_at', 'desc')->limit("5")->get();
         $slug = checker_slug($request->name, $results, null);
 
-        $constituency = new Constituency;
-        $constituency->name = $request->name;
-        $constituency->slug =  $slug;
-        $constituency->region_id =   $request->region;
+        $branch = new Branch;
+        $branch->name = $request->name;
+        $branch->slug =  $slug;
+        $branch->constituency_id =   $request->constituency_id;
 
-        $constituency->save();
+        $branch->save();
 
         notify()->success('You Have Added a Record Successfully');
 
-        return redirect("/admin/constituency");
+        return redirect("/admin/branch");
     }
 
     /**
@@ -80,10 +78,10 @@ class ConstituencyController extends Controller
      */
     public function show($id)
     {
-        $pg = "conctituency";
-        $constituency = Constituency::findorfail($id);
-        $regions = Region::limit(30)->get();
-        return view('admin.constituency.edit',compact('pg','constituency','regions'));
+        $pg = "branch";
+        $branch = Branch::findorfail($id);
+        $constituencies = Constituency::limit(30)->get();
+        return view('admin.branch.edit',compact('pg','constituencies','branch'));
     }
 
     /**
@@ -94,10 +92,10 @@ class ConstituencyController extends Controller
      */
     public function edit($id)
     {
-        $pg = "constituency";
-        $constituency = Constituency::findorfail($id);
-        $regions = Region::limit(30)->get();
-        return view('admin.constituency.edit',compact('pg','constituency','regions'));
+        $pg = "branch";
+        $branch = Branch::findorfail($id);
+        $constituencies = Constituency::limit(30)->get();
+        return view('admin.branch.edit',compact('pg','constituencies','branch'));
     }
 
     /**
@@ -112,19 +110,19 @@ class ConstituencyController extends Controller
         $this->validate($request, [
 
             'name' => ['required', 'string'],
-            'region' => ['required', 'string'],
+            'constituency_id' => ['required', 'string'],
 
         ]);
 
-        $results = Constituency::where('name', '=', $request->name)->orderBy('created_at', 'desc')->limit("5")->get();
+        $results = Branch::where('name', '=', $request->name)->orderBy('created_at', 'desc')->limit("5")->get();
         $slug = checker_slug($request->name, $results, null);
 
-        $constituency = Constituency::find($id);
-        $constituency->name = $request->name;
-        $constituency->slug =  $slug;
-        $constituency->region_id =   $request->region;
+        $branch = Branch::find($id);
+        $branch->name = $request->name;
+        $branch->slug =  $slug;
+        $branch->constituency_id = $request->constituency_id;
 
-        $constituency->save();
+        $branch->save();
 
         notify()->success('You Have Updated a Record Successfully');
 
@@ -139,7 +137,7 @@ class ConstituencyController extends Controller
      */
     public function destroy($id)
     {
-        $constituency = Constituency::find($id)->delete();
+        $branch = Branch::find($id)->delete();
         notify()->success('Record Deleted Successfully');
         return back();
     }
