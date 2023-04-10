@@ -14,5 +14,13 @@ class Constituency extends Model
 
     protected $keyType = 'uuid';
 
-   
+    public function region()
+    {
+        return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+
+    public function branches()
+    {
+        return $this->hasMany(Branch::class, 'constituency_id', 'id');
+    }
 }

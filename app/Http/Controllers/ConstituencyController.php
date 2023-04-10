@@ -24,7 +24,9 @@ class ConstituencyController extends Controller
      */
     public function index()
     {
-        $constituencies = Constituency::paginate(30);
+        $constituencies = Constituency::with('region')
+                           ->withCount('branches')
+                           ->paginate(30);
         $pg = "constituency";
         return view('admin.constituency.all',compact('constituencies','pg'));
     }

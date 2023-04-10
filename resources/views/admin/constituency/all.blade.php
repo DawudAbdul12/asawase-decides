@@ -33,7 +33,8 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th style="width: 30%;">Region</th>
+                                    <th style="width: 15%;">Total Branches</th>
+                                    <th style="width: 25%;">Region</th>
                                     <th style="width: 15%;">Created At</th>
                                     <th class="text-center" style="width: 100px;">Actions</th>
                                 </tr>
@@ -46,9 +47,15 @@
                                             {{ ucwords($constituency->name) }} 
                                         </td>
 
-                                        <td> 
-                                            10 
+                                        <td class="text-center"> 
+                                            {{ $constituency->branches_count }} 
                                         </td>
+
+                                        <td> 
+                                            {{ isset($constituency->region) ? ucwords($constituency->region->name) : "Unasigned" }}
+                                        </td>
+
+
                                         <td>
                                             {{ $constituency->created_at }}
                                         </td>
